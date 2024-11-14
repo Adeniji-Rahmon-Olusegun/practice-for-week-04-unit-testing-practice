@@ -1,6 +1,10 @@
 class Word {
   constructor(word) {
-    this.word = word;
+    if (typeof word === 'string') {
+      this.word = word;
+    } else {
+      throw new TypeError('Word expects string property');
+    }
   }
 
   removeVowels() {
@@ -44,5 +48,8 @@ class Word {
     }
   }
 }
+
+let word = new Word("");
+console.log(word.pigLatin());
 
 module.exports = { Word };
